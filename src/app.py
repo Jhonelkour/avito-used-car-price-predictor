@@ -302,7 +302,8 @@ def load_dataset():
         csv_path = os.path.join(project_root, 'data', 'avito_final_results.csv')
         
         df = pd.read_csv(csv_path)
-        df = df[df['Marque'] != 'autre']  # Remove 'autre' brand
+        # Remove 'autre' and 'Autre' brands
+        df = df[~df['Marque'].str.lower().str.contains('autre', na=False)]
         # Get unique brands and their models
         brand_model_mapping = {}
         for marque in df['Marque'].unique():
@@ -429,7 +430,7 @@ with col2:
     
     origine = st.selectbox(
         "Origine",
-        options=["Maroc", "Europe", "unknown"],
+        options=["Maroc", "Europe"],
         index=0
     )
     
@@ -554,7 +555,7 @@ if predict_button:
             if origine == "Maroc":
                 if 'Origine_Maroc' in input_data.columns:
                     input_data['Origine_Maroc'] = 1
-            elif origine == "unknown":
+            elif origine == "Autre":
                 if 'Origine_unknown' in input_data.columns:
                     input_data['Origine_unknown'] = 1
             
