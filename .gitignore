@@ -1,0 +1,35 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# CatBoost & Model training
+catboost_info/
+*.pkl
+*.h5
+
+# Data files
+data/avito_final_results.csv
+
+# Scraping notebook (private)
+notebooks/00_scraping.ipynb
