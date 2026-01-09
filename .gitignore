@@ -27,7 +27,6 @@ Thumbs.db
 catboost_info/
 
 # Data files
-data/avito_final_results.csv
 
 # Scraping notebook (private)
 notebooks/00_scraping.ipynb
